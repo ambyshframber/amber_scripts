@@ -17,10 +17,8 @@ else:
     else:
         input_str = a.input
 
-#print(input_str)
 h = sha256()
 h.update(bytearray(input_str, "utf-8"))
-#print(h.digest())
 
 val = sin(cos(h.digest()[0] * 12965))
 print(str(val > 0).lower())
