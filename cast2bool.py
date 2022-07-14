@@ -1,21 +1,13 @@
 #!/usr/bin/env python3
 
-from sys import stdin
+from sys import stdin, argv
 from hashlib import sha256
-from argparse import ArgumentParser
 from math import sin, cos
 
-p = ArgumentParser()
-p.add_argument("input", action="store", nargs="*", default="-")
-a = p.parse_args()
-
-if a.input == "-":
+if len(argv) == 1:
     input_str = stdin.read()
 else:
-    if type(a.input) == type([]):
-        input_str = " ".join(a.input)
-    else:
-        input_str = a.input
+    input_str = " ".join(argv[1:])
 
 h = sha256()
 h.update(bytearray(input_str, "utf-8"))
